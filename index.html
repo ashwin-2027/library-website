@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Library Website</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Library</h1>
+        <p>Explore our collection of books.</p>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <a href="signup.html" class="btn btn-secondary">Sign Up</a>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+</head>
+<body>
+    <div class="container">
+        <h1>Available Books</h1>
+        <h5 class="card-title">Book 1</h5>
+        <div class="container">
+            <img src="book1.jpeg" class="img-fluid" alt="Book 1 Image">
+            <div class="card-body">
+                <p class="card-text">.Alchemist by paulo choelo</p>
+                <a href="book1.html" class="btn btn-primary">View Details</a> 
+             <h3>Other Books in the Same Genre</h3>
+              
+            </div>
+        </div>
+      
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Book 2</h1>
+        <img src="book2.jpeg" class="img-fluid" alt="Book 2 Image">
+        <p>.Voted best thriller novel</p>
+        <a href="book2.html" class="btn btn-primary">View Details</a>
+        <ul>
+            
+            
+        </ul>
+    </div>
+</body>
+</html>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Book 3</h1>
+        <img src="book3.jpeg" class="img-fluid" alt="Book 3 Image">
+        <p>.About earth by Stephen Ross</p>
+        <a href="book3.html" class="btn btn-primary">View Details</a>
+        
+        <ul>
+           
+        </ul>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Book 4</h1>
+        <img src="book4.jpeg" class="img-fluid" alt="Book 4 Image">
+        <p>.Secrets in a sillicon valley startup</p>
+        <a href="book4.html" class="btn btn-primary">View Details</a>
+        <ul>
+            
+          
+        </ul>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Book 5</h1>
+        <img src="book5.jpeg" class="img-fluid" alt="Book 5 Image">
+        <p>.Soul by Olivia Wilson</p>
+        <a href="book5.html" class="btn btn-primary">View Details</a>
+        <ul>
+            
+            
+        </ul>
+    </div>
+</body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Website</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Library Website</title>
+        <style>
+            .error {
+                color: red;
+            }
+            .success {
+                color: green;
+            }
+            .warning {
+                color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
+                <span id="emailError" class="error"></span>
+            </div>
+            <div>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone">
+                <span id="phoneError" class="error"></span>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <span id="passwordError" class="error"></span>
+            </div>
+            <button type="submit">Sign Up</button>
+            <a href="signup.html" class="btn btn-primary">View Details</a>
+        </form>
+    
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div>
+                <label for="loginEmail">Email:</label>
+                <input type="text" id="loginEmail" name="loginEmail">
+                <span id="loginEmailError" class="error"></span>
+            </div>
+            <div>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword">
+                <span id="loginPasswordError" class="error"></span>
+               
+            </div>
+            <button type="submit">Login</button>
+            <a href="login.html" class="btn btn-primary">View Details</a>
+        </form>
+    
+        <script>
+            const signupForm = document.getElementById('signupForm');
+            const loginForm = document.getElementById('loginForm');
+    
+            signupForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const email = signupForm.elements['email'].value;
+                const phone = signupForm.elements['phone'].value;
+                const password = signupForm.elements['password'].value;
+    
+                if (!validateEmail(email)) {
+                    document.getElementById('emailError').textContent = 'Invalid email format';
+                } else {
+                    document.getElementById('emailError').textContent = '';
+                }
+    
+                if (!validatePhoneNumber(phone)) {
+                    document.getElementById('phoneError').textContent = 'Invalid phone number format';
+                } else {
+                    document.getElementById('phoneError').textContent = '';
+                }
+    
+                if (!validatePassword(password)) {
+                    document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number';
+                } else {
+                    document.getElementById('passwordError').textContent = '';
+                }
+            });
+    
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const loginEmail = loginForm.elements['loginEmail'].value;
+                const loginPassword = loginForm.elements['loginPassword'].value;
+    
+                if (!validateEmail(loginEmail)) {
+                    document.getElementById('loginEmailError').textContent = 'Invalid email format';
+                } else {
+                    document.getElementById('loginEmailError').textContent = '';
+                }
+    
+                if (!validatePassword(loginPassword)) {
+                    document.getElementById('loginPasswordError').textContent = 'Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number';
+                } else {
+                    document.getElementById('loginPasswordError').textContent = '';
+                }
+            });
+    
+            function validateEmail(email) {
+                const re = /\S+@\S+\.\S+/;
+                return re.test(email);
+            }
+    
+            function validatePhoneNumber(phone) {
+                const re = /^\d{3}[\s.-]?\d{3}[\s.-]?\d{4}$/;
+                return re.test(phone);
+            }
+    
+            function validatePassword(password) {
+                const re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+                if (password.length < 8) {
+                    return false;
+                } else if (!/[a-z]/.test(password)) {
+                    return false;
+                } else if (!/[A-Z]/.test(password)) {
+                    return false;
+                } else if (!/\d/.test(password)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        </script>
+    </body>
+    </html>

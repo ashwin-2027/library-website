@@ -1,0 +1,93 @@
+
+
+<h2>Login</h2>
+<form id="loginForm">
+    <div>
+        <label for="loginEmail">Email:</label>
+        <input type="text" id="loginEmail" name="loginEmail">
+        <span id="loginEmailError" class="error"></span>
+    </div>
+    <div>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword">
+        <span id="loginPasswordError" class="error"></span>
+       
+    </div>
+    <button type="submit">Login</button>
+    <a href="login.html" class="btn btn-primary">View Details</a>
+</form>
+
+<script>
+    const signupForm = document.getElementById('signupForm');
+    const loginForm = document.getElementById('loginForm');
+
+    signupForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const email = signupForm.elements['email'].value;
+        const phone = signupForm.elements['phone'].value;
+        const password = signupForm.elements['password'].value;
+
+        if (!validateEmail(email)) {
+            document.getElementById('emailError').textContent = 'Invalid email format';
+        } else {
+            document.getElementById('emailError').textContent = '';
+        }
+
+        if (!validatePhoneNumber(phone)) {
+            document.getElementById('phoneError').textContent = 'Invalid phone number format';
+        } else {
+            document.getElementById('phoneError').textContent = '';
+        }
+
+        if (!validatePassword(password)) {
+            document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number';
+        } else {
+            document.getElementById('passwordError').textContent = '';
+        }
+    });
+
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const loginEmail = loginForm.elements['loginEmail'].value;
+        const loginPassword = loginForm.elements['loginPassword'].value;
+
+        if (!validateEmail(loginEmail)) {
+            document.getElementById('loginEmailError').textContent = 'Invalid email format';
+        } else {
+            document.getElementById('loginEmailError').textContent = '';
+        }
+
+        if (!validatePassword(loginPassword)) {
+            document.getElementById('loginPasswordError').textContent = 'Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number';
+        } else {
+            document.getElementById('loginPasswordError').textContent = '';
+        }
+    });
+
+    function validateEmail(email) {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    function validatePhoneNumber(phone) {
+        const re = /^\d{3}[\s.-]?\d{3}[\s.-]?\d{4}$/;
+        return re.test(phone);
+    }
+
+    function validatePassword(password) {
+        const re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        if (password.length < 8) {
+            return false;
+        } else if (!/[a-z]/.test(password)) {
+            return false;
+        } else if (!/[A-Z]/.test(password)) {
+            return false;
+        } else if (!/\d/.test(password)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+</body>
+</html>
